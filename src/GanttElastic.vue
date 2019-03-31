@@ -9,7 +9,11 @@
 <template>
   <div class="gantt-elastic" style="width:100%">
     <slot name="header"></slot>
-    <main-view :tasks="tasks" :options="options"></main-view>
+    <main-view :tasks="tasks" :options="options">
+      <template slot="cellTemplate" slot-scope="{task, column}">
+        <slot name="cellTemplate" :task="task" :column="column"></slot>
+      </template>
+    </main-view>
     <slot name="footer"></slot>
   </div>
 </template>

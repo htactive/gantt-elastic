@@ -57,7 +57,7 @@
           @touchmove="emitEvent('touchmove', $event)"
           @touchend="emitEvent('touchend', $event)"
         >
-          <slot :name="`cl-${column.id}_tk-${task.id}`"></slot>
+          <slot name="cellTemplate" :task="task" :column="column"></slot>
         </div>
       </div>
     </div>

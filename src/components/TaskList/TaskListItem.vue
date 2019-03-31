@@ -20,6 +20,9 @@
         :style="expanderStyle"
         :options="$store.state.GanttElastic.options.taskList.expander"
       ></task-list-expander>
+      <template slot="cellTemplate" slot-scope="{task, column}">
+        <slot name="cellTemplate" :task="task" :column="column"></slot>
+      </template>
     </item-column>
   </div>
 </template>

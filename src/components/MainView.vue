@@ -39,7 +39,11 @@
             "
             v-show="$store.state.GanttElastic.options.taskList.display"
           >
-            <task-list></task-list>
+            <task-list>
+              <template slot="cellTemplate" slot-scope="{task, column}">
+                <slot name="cellTemplate" :task="task" :column="column"></slot>
+              </template>
+            </task-list>
           </div>
           <div
             class="gantt-elastic__main-view-container"

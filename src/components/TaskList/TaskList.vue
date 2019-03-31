@@ -25,7 +25,11 @@
           :key="task.id"
           :task="task"
           :expander-style="getListExpanderStyle(task)"
-        ></task-list-item>
+        >
+          <template slot="cellTemplate" slot-scope="{task, column}">
+            <slot name="cellTemplate" :task="task" :column="column"></slot>
+          </template>
+        </task-list-item>
       </div>
     </div>
   </div>
