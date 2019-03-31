@@ -40,9 +40,7 @@
           @touchstart="emitEvent('touchstart', $event)"
           @touchmove="emitEvent('touchmove', $event)"
           @touchend="emitEvent('touchend', $event)"
-        >
-          {{ value }}
-        </div>
+        >{{ value }}</div>
         <div
           v-if="html"
           class="gantt-elastic__task-list-item-value"
@@ -58,8 +56,9 @@
           @touchstart="emitEvent('touchstart', $event)"
           @touchmove="emitEvent('touchmove', $event)"
           @touchend="emitEvent('touchend', $event)"
-          v-html="value"
-        ></div>
+        >
+          <slot :name="`cl-${column.id}_tk-${task.id}`"></slot>
+        </div>
       </div>
     </div>
   </div>
